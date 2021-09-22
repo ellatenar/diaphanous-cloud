@@ -5,6 +5,6 @@ setup(
     packages=['diaphanous'],
     include_package_data=True,
     install_requires=[
-        'flask',
+        'flask', 'flask_pymongo'
     ]
 )
