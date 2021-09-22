@@ -1,0 +1,16 @@
+*.egg
+*.egg-info/
+diaphanous/__pycache__/
+diaphanous/static/
+instance/
+.webassets-cache
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
