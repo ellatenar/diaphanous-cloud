@@ -4,13 +4,16 @@
 <body>
     <div id="main">
         <h2 class="title"><i>diaphanous cloud</i></h2>
-        <p><span>welcome to my page :)</span></p>
 
-        {% for href, caption in [('/hi', 'about'), ('/sound', 'sound'), ('/land', 'land'), ('/code', 'code'), ('https://linkedin.com/in/ella-heron', 'alienated labor')] %}
+        {% for href, caption in 
+            [('/hi', 'about'), ('/sound', 'sound'), ('/land', 'land'), ('/code', 'code'), ('https://linkedin.com/in/ella-heron', 'alienated labor')] %}
+            
             <p><span><a href="{{ href }}">{{ caption }}</a></span></p>
+        
         {% endfor %}
 
     </div>
     {% include 'footer.html' %}
 </body>
+<script src="{{ url_for('static', filename='script/main.js') }}" defer></script>
 </html>

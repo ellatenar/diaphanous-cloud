@@ -2,16 +2,18 @@
 <html lang="en">
 {% include 'header.html' %}
 <body>
-    {% include 'header.html' %}
+    {% include 'nav.html' %}
     <div id="main">
-        {% include 'nav.html' %}
         <h2 class="title"><i>hi</i></h2>
-        <p><span>i'm a fullstack developer, sound artist, musician, educator, and aspiring agrarian.</span></p>
-        <p><span>i'm from new haven, connecticut, on occupied quinnipiack territory on turtle island.</span></p>
-        <p><span>now i live in philadelphia on occupied lenapehoking.</span></p>
-        <p><span>i love talking to new ppl. please reach out to me via email by signing up for my mailing list and leaving me a message!</span></p>
+        <p>my name's ella heron.</p>
+        <p>i live in philadelphia on occupied lenapehoking.</p>
+        <p>i'm a fullstack developer, sound artist, educator, and aspiring agrarian.</p>
+        <p>i'm from new haven, connecticut, on occupied quinnipiack territory on turtle island.</p>
+        <p>i'm passionate about ecology, movies, trees, dancing, fermentation, and global transformational justice.</p>
+        <p>i love talking to new ppl. please reach out to me via email by signing up for my mailing list and leaving me a message!</p>
         <img src="../static/img/me.PNG" alt="hai XD" width=200/>
     </div>
+    {% include 'footer.html' %}
 </body>
-{% include 'footer.html' %}
+<script src="{{ url_for('static', filename='script/main.js') }}" defer></script>
 </html>
