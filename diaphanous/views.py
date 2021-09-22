@@ -13,7 +13,7 @@ def sound():
     return render_template('audio.html')
 
 @app.route("/hi")
-def three():
+def about():
     return render_template('hi.html')
 
 @app.errorhandler(404)

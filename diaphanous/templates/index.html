@@ -1,23 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>diaphanous cloud</title>
-    <link rel="stylesheet" href="../static/style.css">
-
-</head>
+    {% include 'header.html' %}
 <body>
     <div id="main">
         <h2 class="title"><i>diaphanous cloud</i></h2>
         <p><span>welcome to my page :)</span></p>
-        <p><span><a href="/sound">sound</a></span></p>
-        <p><span><a href="/land">land</a></span></p>
-        <p><span><a href="https://linkedin.com/in/ella-heron">alienated labor *ahem* excuse me, professional presence</a></span></p>
+
+        {% for href, caption in [('/hi', 'about'), ('/sound', 'sound'), ('/land', 'land'), ('/code', 'code'), ('https://linkedin.com/in/ella-heron', 'alienated labor')] %}
+            <p><span><a href="{{ href }}">{{ caption }}</a></span></p>
+        {% endfor %}
+
     </div>
-    <footer>
-        <p><span>☁️&nbsp;&nbsp;&nbsp;site by <a href="https://github.com/ellatenar">ella heron</a>&nbsp;&nbsp;☁️</span></p>
-    </footer>
+    {% include 'footer.html' %}
 </body>
 </html>
