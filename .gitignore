@@ -1,7 +1,8 @@
+.DS_Store
+
 *.egg
 *.egg-info/
 diaphanous/__pycache__/
-diaphanous/static/
 instance/
 .webassets-cache
 

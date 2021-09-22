@@ -1,0 +1,53 @@
+body {
+    background:#eee 85% url("./molokhia.JPG");
+}
+
+#main {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    align-content: space-around;
+    
+}
+
+#main > * + * {
+    margin-top: 5vh;
+}
+
+p, h2 {
+    text-align: center;
+    
+}
+
+.title {
+    border: 2x;
+    padding: 10px;
+    background: purple;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+footer {
+    margin-top: 5vh;
+}
+
+span {
+    background: purple;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+a {
+    color: #e97451;
+    text-decoration: none;
+}
+
+a:hover {
+    color: yellow;
+}
+
+#nav {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+}
