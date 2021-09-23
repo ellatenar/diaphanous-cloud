@@ -4,7 +4,7 @@ from flask_pymongo import PyMongo
 
 app = Flask(__name__)
 
-# mongoURI = environ.get("MONGO_URI")
+mongoURI = environ.get("MONGO_URI")
 
 # mongodb_client = PyMongo(app, mongoURI)
 # db = mongodb_client.db

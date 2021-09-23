@@ -53,8 +53,8 @@ a:hover {
 }
 
 #nav {
-    position: sticky;
-    top: 0;
+    position: absolute;
+    top: 10;
 }
 
 #siteInfo {
@@ -66,6 +66,6 @@ a:hover {
     border: 1px solid goldenrod
 }
 
-#siteInfo > * + * {
+#siteInfo > * + *, form > div + div {
     margin-top: .5vh;
 }

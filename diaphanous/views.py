@@ -1,4 +1,5 @@
 from flask import render_template
+from flask import request
 
 from diaphanous import app
 
@@ -15,12 +16,19 @@ def sound():
 def about():
     return render_template('hi.jinja', subpage=True, title='hi')
 
-# @app.route("/signup", methods=['POST', 'GET'])
-# def signup():
+@app.route("/signup", methods=['POST', 'GET'])
+def signup():
+    if request.method=='POST':
+        # Send into MongoDB
+
+        name = request.form.get('name')
+        email = request.form.get('email')
+        
+        return render_template('confirmed.jinja', subpage=True, title='thank you!')
+    else:
+        return render_template('signup.jinja', subpage=True, title='mailing list')
+
     
 @app.errorhandler(404)
 def page_note_found(error):
     return render_template('404.jinja', subpage=True, title='404 not found'), 404
-
-# client = pymongo.MongoClient("mongodb+srv://ella:jvu2hpc*frp_wth8DWC@cluster0.jb8cd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-# db = client.test
