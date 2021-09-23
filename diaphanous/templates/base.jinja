@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include 'header.jinja' %}
+<body>
+    {% if subpage %}
+    {% include 'nav.jinja' %}
+    {% endif %}
+    <div id="main">
+        <h2 class="title"><i>{{ title }}</i></h2>
+        {% block content %}{% endblock %}
+    {% include 'footer.jinja' %}
+    </div>
+</body>
+<script src="{{ url_for('static', filename='script/main.js') }}" defer></script>
+</html>

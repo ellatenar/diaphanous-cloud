@@ -1,9 +1,12 @@
 from flask import Flask
+from os import environ
 from flask_pymongo import PyMongo
 
 app = Flask(__name__)
-app.config["MONGO_URI"] = "mongodb://localhost:27017/myFirstDatabase"
-mongo = PyMongo(app)
+
+# mongoURI = environ.get("MONGO_URI")
+
+# mongodb_client = PyMongo(app, mongoURI)
+# db = mongodb_client.db
 
 import diaphanous.views
-

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-{% include 'header.html' %}
+{% include 'header.jinja' %}
 <body>
-    {% include 'nav.html' %}
+    {% include 'nav.jinja' %}
     <div id="main">
         <h2 class="title"><i>hi</i></h2>
         <p>my name's ella heron.</p>
@@ -13,7 +13,7 @@
         <p>i love talking to new ppl. please reach out to me via email by signing up for my mailing list and leaving me a message!</p>
         <img src="../static/img/me.PNG" alt="hai XD" width=200/>
     </div>
-    {% include 'footer.html' %}
+    {% include 'footer.jinja' %}
 </body>
 <script src="{{ url_for('static', filename='script/main.js') }}" defer></script>
 </html>
