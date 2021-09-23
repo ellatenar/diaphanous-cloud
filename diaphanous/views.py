@@ -2,7 +2,9 @@ from flask import render_template
 from flask import request
 
 from diaphanous import app
-from diaphanous import db
+from diaphanous import mongodb_client
+
+db = mongodb_client.db
 
 @app.route("/")
 @app.route("/index/")
@@ -26,7 +28,7 @@ def signup():
         if email is not None:
             try:
                 db.contacts.insert_one({'name': name, 'email': email})
-            except:
+            except RuntimeError:
                 return render_template('error.jinja', subpage=True, title='500 error')
         
         return render_template('confirmed.jinja', subpage=True, title='thank you!')

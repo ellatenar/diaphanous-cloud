@@ -7,6 +7,5 @@ app = Flask(__name__)
 mongoURI = environ.get("MONGO_URI")
 
 mongodb_client = PyMongo(app, uri=mongoURI)
-db = mongodb_client.db
 
 import diaphanous.views
