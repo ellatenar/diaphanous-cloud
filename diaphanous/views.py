@@ -2,6 +2,7 @@ from flask import render_template
 from flask import request
 
 from diaphanous import app
+from diaphanous import db
 
 @app.route("/")
 @app.route("/index/")
