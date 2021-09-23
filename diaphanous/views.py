@@ -20,9 +20,13 @@ def about():
 def signup():
     if request.method=='POST':
         # Send into MongoDB
-
         name = request.form.get('name')
         email = request.form.get('email')
+        if email is not None:
+            try:
+                db.contacts.insert_one({'name': name, 'email': email})
+            except:
+                return render_template('error.jinja', subpage=True, title='500 error')
         
         return render_template('confirmed.jinja', subpage=True, title='thank you!')
     else:
