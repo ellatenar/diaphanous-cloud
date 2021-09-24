@@ -1,10 +1,15 @@
 from flask import render_template
 from flask import request
 
-from diaphanous import app
-from diaphanous import mongodb_client
+import psycopg
+import urllib.parse
+import os
 
-db = mongodb_client.db
+from diaphanous import app
+
+url = urllib.parse.urlparse(os.environ.get('DATABASE_URL'))
+db = "dbname=%s user=%s password=%s host=%s " % (url.path[1:], url.username, url.password, url.hostname)
+conn = psycopg.connect(db)
 
 @app.route("/")
 @app.route("/index/")
@@ -22,16 +27,18 @@ def about():
 @app.route("/signup", methods=['POST', 'GET'])
 def signup():
     if request.method=='POST':
-        # Send into MongoDB
-        name = request.form.get('name')
-        email = request.form.get('email')
-        if email is not None:
-            try:
-                db.contacts.insert_one({'name': name, 'email': email})
-            except RuntimeError:
-                return render_template('error.jinja', subpage=True, title='500 error')
-        
-        return render_template('confirmed.jinja', subpage=True, title='thank you!')
+        # Send as PSQL Query
+        with conn.cursor() as cur:
+            name = request.form.get('name')
+            email = request.form.get('email')
+            if email is not None:
+                SQL = "INSERT INTO contacts (name, email) VALUES (%s, %s)"  # Note: no quotes
+                data = (name, email)
+                cur.execute(SQL, data)
+                conn.commit()
+                return render_template('confirmed.jinja', subpage=True, title='thank you!')
+            else:
+                return render_template('signup.jinja', subpage=True, title="please enter an email address <3")
     else:
         return render_template('signup.jinja', subpage=True, title='mailing list')
 

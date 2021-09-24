@@ -1,11 +1,10 @@
-from flask_pymongo import PyMongo
 from flask import Flask
-from os import environ
+
+# url = urllib.parse.urlparse(os.environ.get('DATABASE_URL'))
+# db = "dbname=%s user=%s password=%s host=%s " % (url.path[1:], url.username, url.password, url.hostname)
+# schema = "schema.sql"
+# conn = psycopg.connect(db)
 
 app = Flask(__name__)
-
-mongoURI = environ.get("MONGO_URI")
-
-mongodb_client = PyMongo(app, uri=mongoURI)
 
 import diaphanous.views
