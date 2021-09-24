@@ -1,7 +1,7 @@
 {% extends "base.jinja" %}
 {% block content %}
     {% for href, caption in 
-        [('/hi', 'about'), ('/sound', 'sound'), ('https://github.com/ellatenar', 'code'), ('https://linkedin.com/in/ella-heron', 'alienated labor'), ('/signup', 'mailing list')] %}
+        [('/hi', 'about'), ('/sound', 'sound'), ('https://github.com/ellatenar', 'code'), ('https://linkedin.com/in/ella-heron', 'alienated labor')] %}
 
         <p><span><a href="{{ href }}">{{ caption }}</a></span></p>
     
