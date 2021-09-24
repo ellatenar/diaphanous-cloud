@@ -16,3 +16,6 @@ env.bak/
 venv.bak/
 
 .env
+
+build/
+vendor/
