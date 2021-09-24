@@ -1,8 +1,10 @@
 click==7.1.2
--e git+https://github.com/ellatenar/heron-zone.git@7de59c52851c0fa182bee93aeb69b661f82a3da4#egg=diaphanous
+-e git+https://github.com/ellatenar/heron-zone.git@e3e458cfac5342d78222cdcafefff34aa0c7e1d0#egg=diaphanous
 Flask==2.0.1
+gunicorn==20.1.0
 itsdangerous==2.0.1
 Jinja2==3.0.1
 MarkupSafe==2.0.1
+psycopg2==2.9.1
 urlparser==0.1.2
 Werkzeug==2.0.1
