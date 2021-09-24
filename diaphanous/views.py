@@ -14,15 +14,15 @@ print(db)
 @app.route("/")
 @app.route("/index/")
 def index():
-    return render_template('index.jinja', subpage=False, title='diaphanous cloud')
+    return render_template('index.jinja', index=True, title='diaphanous cloud')
 
 @app.route("/sound/")
 def sound():
-    return render_template('audio.jinja', subpage=True, title='selected sound sources')
+    return render_template('audio.jinja', title='selected sound sources')
 
 @app.route("/hi")
 def about():
-    return render_template('hi.jinja', subpage=True, title='hi')
+    return render_template('hi.jinja', title='hi')
 
 @app.route("/signup", methods=['POST', 'GET'])
 def signup():
@@ -33,17 +33,17 @@ def signup():
                 name = request.form.get('name')
                 email = request.form.get('email')
                 if email is not None:
-                    SQL = "INSERT INTO contacts (name, email) VALUES (%s, %s)"  # Note: no quotes
+                    SQL = "INSERT INTO contacts (name, email) VALUES (%s, %s)"
                     data = (name, email)
                     cur.execute(SQL, data)
                     conn.commit()
-                    return render_template('confirmed.jinja', subpage=True, title='thank you!')
+                    return render_template('confirmed.jinja', title='thank you!')
                 else:
-                    return render_template('signup.jinja', subpage=True, title="please enter an email address <3")
+                    return render_template('signup.jinja', title="please enter an email address <3")
     else:
-        return render_template('signup.jinja', subpage=True, title='mailing list')
+        return render_template('signup.jinja', title='mailing list')
 
     
 @app.errorhandler(404)
 def page_note_found(error):
-    return render_template('404.jinja', subpage=True, title='404 not found'), 404
+    return render_template('404.jinja', title='404 not found'), 404
