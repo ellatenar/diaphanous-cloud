@@ -1,15 +1,7 @@
 from flask import render_template
 from flask import request
 
-import psycopg2
-import urllib.parse
-import os
-
 from diaphanous import app
-
-url = urllib.parse.urlparse(os.environ.get('DATABASE_URL'))
-db = "dbname=%s user=%s password=%s host=%s " % (url.path[1:], url.username, url.password, url.hostname)
-print(db)
 
 @app.route("/")
 @app.route("/index/")
@@ -24,26 +16,6 @@ def sound():
 def about():
     return render_template('hi.jinja', title='hi')
 
-@app.route("/signup", methods=['POST', 'GET'])
-def signup():
-    if request.method=='POST':
-        #  query psql db
-        with psycopg2.connect(db) as conn:
-            with conn.cursor() as cur:
-                name = request.form.get('name')
-                email = request.form.get('email')
-                if email is not None:
-                    SQL = "INSERT INTO contacts (name, email) VALUES (%s, %s)"
-                    data = (name, email)
-                    cur.execute(SQL, data)
-                    conn.commit()
-                    return render_template('confirmed.jinja', title='thank you!')
-                else:
-                    return render_template('signup.jinja', title="please enter an email address <3")
-    else:
-        return render_template('signup.jinja', title='mailing list')
-
-    
 @app.errorhandler(404)
 def page_note_found(error):
     return render_template('404.jinja', title='404 not found'), 404
