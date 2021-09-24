@@ -69,3 +69,16 @@ a:hover {
 #siteInfo > * + *, form > div + div {
     margin-top: .5vh;
 }
+
+@media screen and (min-width: 500px) {
+    iframe {
+        width: 450px;
+    }
+}
+
+@media screen and (max-width: 499px) {
+    iframe {
+        width: 90vw;
+        max-height: 90vw;
+    }
+}
