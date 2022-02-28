@@ -13,7 +13,7 @@ body {
     flex-flow: column nowrap;
     align-items: center;
     align-content: space-around;
-    
+
 }
 
 #main > * + * {
@@ -81,4 +81,9 @@ a:hover {
         width: 90vw;
         max-height: 90vw;
     }
+}
+
+.highlight {
+    max-width: 50vw;
+    height: auto;
 }

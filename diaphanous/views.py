@@ -8,6 +8,10 @@ from diaphanous import app
 def index():
     return render_template('index.jinja', index=True, title='diaphanous cloud')
 
+@app.route("/land/")
+def land():
+    return render_template('land.jinja', title='land')
+
 @app.route("/sound/")
 def sound():
     return render_template('audio.jinja', title='selected sound sources')
